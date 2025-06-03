@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfo8jw858mvm1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
+bg_color = Color(0.803691, 0.529853, 0.280418, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uchyk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.386285
+anchor_right = 0.613715
+anchor_bottom = 0.182099
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "Nombre del Juego"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.397569
+anchor_top = 0.647
+anchor_right = 0.616743
+anchor_bottom = 1.0
+offset_top = -0.256012
+offset_right = -0.488037
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/icon_hover_color = Color(0.97066, 0.0897941, 0.360832, 1)
+text = "JUGAR"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.914063
+anchor_top = 0.0432099
+anchor_right = 0.975694
+anchor_bottom = 0.0910494
+text = "AJUSTES"
+metadata/_edit_use_anchors_ = true
