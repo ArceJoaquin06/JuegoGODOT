@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://drjkhhwe3evvw"]
+[gd_scene load_steps=5 format=3 uid="uid://drjkhhwe3evvw"]
 
 [ext_resource type="PackedScene" uid="uid://d3pj4213bdv7n" path="res://Player.tscn" id="3_cykkq"]
 [ext_resource type="Texture2D" uid="uid://jyajh0osrfjh" path="res://images/Backgrounds/baner.png" id="4_kqyjo"]
+[ext_resource type="PackedScene" uid="uid://5w0wmy4doy1j" path="res://PlayerArcher.tscn" id="4_l6w72"]
 [ext_resource type="PackedScene" uid="uid://dnx3113v8o7s1" path="res://Pisito.tscn" id="5_l6w72"]
 
 [node name="Node2D" type="Node2D"]
@@ -86,5 +87,5 @@ position = Vector2(-277, -98)
 position = Vector2(-234, -37)
 scale = Vector2(0.868097, 1.02251)
 
-[node name="Node2D20" parent="." instance=ExtResource("3_cykkq")]
-position = Vector2(131, -12)
+[node name="Node2D20" parent="." instance=ExtResource("4_l6w72")]
+position = Vector2(211, -7)
