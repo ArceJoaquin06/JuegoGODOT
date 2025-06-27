@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bu20ejwlcrfs5"]
+[gd_scene load_steps=2 format=3 uid="uid://bu20ejwlcrfs5"]
+
+[ext_resource type="Script" uid="uid://b2kydl15m7ec7" path="res://options.gd" id="1_5v8ap"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5v8ap")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -61,6 +64,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 3.0
 offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Audio/MarginContainer"]
 layout_mode = 2
@@ -103,3 +108,15 @@ size_flags_stretch_ratio = 0.15
 max_value = 2.0
 step = 0.1
 value = 1.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
