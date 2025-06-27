@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyidwemchndps"]
+[gd_scene load_steps=2 format=3 uid="uid://c8q34s2fxgimc"]
 
 [ext_resource type="Script" uid="uid://dmpfpuaw0itga" path="res://opciones.gd" id="1_0bc36"]
 
@@ -11,26 +11,33 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0bc36")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 649.0
+current_tab = 0
+
+[node name="Pantalla" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Pantalla"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = -302.0
+offset_bottom = -626.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 400
 theme_override_constants/margin_right = 400
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Pantalla/MarginContainer"]
 layout_mode = 2
-alignment = 1
+columns = 2
 
-[node name="Sonido" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Pantalla/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "Sonido"
-
-[node name="Menu" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Menu"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+text = "Displa"

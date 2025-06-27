@@ -1,14 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3pj4213bdv7n"]
+[gd_scene load_steps=11 format=3 uid="uid://d3pj4213bdv7n"]
 
 [ext_resource type="Script" uid="uid://df0jpgchquk1b" path="res://PlayerMovement.gd" id="1_kne1u"]
 [ext_resource type="Texture2D" uid="uid://dpt8dbtvwksm5" path="res://images/Knight/noBKG_KnightIdle_strip.png" id="2_e80uo"]
 [ext_resource type="Texture2D" uid="uid://botr5sv5yd8tc" path="res://images/Knight/noBKG_KnightRun_strip.png" id="3_cxr5p"]
+[ext_resource type="Texture2D" uid="uid://dy8caywlpx5ps" path="res://images/Knight/noBKG_KnightJump.png" id="3_e80uo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdg3f"]
 size = Vector2(17, 25)
 
 [sub_resource type="Animation" id="Animation_cykkq"]
 resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_e80uo")]
+}
 
 [sub_resource type="Animation" id="Animation_gjvmy"]
 length = 0.001
