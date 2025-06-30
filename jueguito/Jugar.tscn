@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://drjkhhwe3evvw"]
+[gd_scene load_steps=6 format=3 uid="uid://drjkhhwe3evvw"]
 
 [ext_resource type="Texture2D" uid="uid://jyajh0osrfjh" path="res://images/Backgrounds/baner.png" id="1_efeei"]
 [ext_resource type="PackedScene" uid="uid://dnx3113v8o7s1" path="res://Pisito.tscn" id="2_2lkxk"]
 [ext_resource type="PackedScene" uid="uid://d3pj4213bdv7n" path="res://Player.tscn" id="3_junlo"]
 [ext_resource type="PackedScene" uid="uid://5w0wmy4doy1j" path="res://PlayerArcher.tscn" id="4_hyf8l"]
+[ext_resource type="PackedScene" uid="uid://dxm2ckglrh1en" path="res://ajustes_img.tscn" id="5_2lkxk"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,8 +27,7 @@ position = Vector2(1, 0)
 texture = ExtResource("1_efeei")
 
 [node name="Camera2D" type="Camera2D" parent="Baner"]
-position = Vector2(-1, 0)
-zoom = Vector2(2.3, 2.15)
+zoom = Vector2(2.32, 2.14)
 
 [node name="Node2D" parent="." instance=ExtResource("2_2lkxk")]
 position = Vector2(-181, 68)
@@ -67,3 +67,7 @@ position = Vector2(211, -7)
 [node name="Node2D19" parent="." instance=ExtResource("2_2lkxk")]
 position = Vector2(0, 134)
 scale = Vector2(4, 1)
+
+[node name="Ajustes_Img" parent="." instance=ExtResource("5_2lkxk")]
+position = Vector2(240, -141)
+scale = Vector2(0.1, 0.1)
