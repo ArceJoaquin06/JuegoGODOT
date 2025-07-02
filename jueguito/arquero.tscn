@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://b4ge8qamycbg1"]
+
+[ext_resource type="Texture2D" uid="uid://bg8teikkcvcyc" path="res://images/NoBackgroundColor/spr_ArcherIdle_strip_NoBkg.png" id="1_hr8d2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cino0"]
+atlas = ExtResource("1_hr8d2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phyf2"]
+atlas = ExtResource("1_hr8d2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0kox"]
+atlas = ExtResource("1_hr8d2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns5s5"]
+atlas = ExtResource("1_hr8d2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvqs8"]
+atlas = ExtResource("1_hr8d2")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snaml"]
+atlas = ExtResource("1_hr8d2")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkft1"]
+atlas = ExtResource("1_hr8d2")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtfw7"]
+atlas = ExtResource("1_hr8d2")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_260ta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cino0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phyf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0kox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns5s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvqs8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snaml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkft1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtfw7")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysngc"]
+size = Vector2(18, 26)
+
+[node name="Arquero" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
+sprite_frames = SubResource("SpriteFrames_260ta")
+animation = &"new_animation"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_ysngc")
