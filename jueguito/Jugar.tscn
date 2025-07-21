@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://jyajh0osrfjh" path="res://images/Backgrounds/baner.png" id="1_efeei"]
 [ext_resource type="PackedScene" uid="uid://dnx3113v8o7s1" path="res://Pisito.tscn" id="2_2lkxk"]
 [ext_resource type="PackedScene" uid="uid://d3pj4213bdv7n" path="res://Player.tscn" id="3_junlo"]
-[ext_resource type="PackedScene" uid="uid://5w0wmy4doy1j" path="res://PlayerArcher.tscn" id="4_hyf8l"]
 [ext_resource type="PackedScene" uid="uid://dxm2ckglrh1en" path="res://ajustes_img.tscn" id="5_2lkxk"]
+[ext_resource type="PackedScene" uid="uid://b4ge8qamycbg1" path="res://arquero.tscn" id="5_junlo"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -61,9 +61,6 @@ scale = Vector2(1, 2)
 position = Vector2(-234, -37)
 scale = Vector2(0.868097, 1.02251)
 
-[node name="EnemyArcher" parent="." instance=ExtResource("4_hyf8l")]
-position = Vector2(211, -7)
-
 [node name="Node2D19" parent="." instance=ExtResource("2_2lkxk")]
 position = Vector2(0, 134)
 scale = Vector2(4, 1)
@@ -71,3 +68,6 @@ scale = Vector2(4, 1)
 [node name="Ajustes_Img" parent="." instance=ExtResource("5_2lkxk")]
 position = Vector2(240, -141)
 scale = Vector2(0.1, 0.1)
+
+[node name="Arquero" parent="." instance=ExtResource("5_junlo")]
+position = Vector2(194, -2)
