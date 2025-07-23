@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=3 uid="uid://b4ge8qamycbg1"]
 
 [ext_resource type="Texture2D" uid="uid://bg8teikkcvcyc" path="res://images/NoBackgroundColor/spr_ArcherIdle_strip_NoBkg.png" id="1_hr8d2"]
+[ext_resource type="Script" uid="uid://wpdf0o0n0fdo" path="res://arquero.gd" id="1_phyf2"]
 [ext_resource type="Texture2D" uid="uid://b0jmh6wwmo0it" path="res://images/NoBackgroundColor/spr_ArcherAttackLessArrow_strip_NoBkg.png" id="2_cino0"]
-[ext_resource type="Script" uid="uid://br85yy3nfwonm" path="res://Arquero.gd" id="3_phyf2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_260ta"]
 atlas = ExtResource("2_cino0")
@@ -175,13 +175,13 @@ animations = [{
 size = Vector2(18, 26)
 
 [node name="Arquero" type="CharacterBody2D"]
+script = ExtResource("1_phyf2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_260ta")
 animation = &"Atack"
-frame_progress = 0.351894
-script = ExtResource("3_phyf2")
+frame_progress = 0.91712
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -1)
