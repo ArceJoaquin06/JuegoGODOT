@@ -346,8 +346,7 @@ script = ExtResource("1_phyf2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_260ta")
-animation = &"Dodge"
-frame_progress = 0.283836
+animation = &"Atack"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -1)

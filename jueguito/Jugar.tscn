@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://drjkhhwe3evvw"]
+[gd_scene load_steps=14 format=3 uid="uid://drjkhhwe3evvw"]
 
 [ext_resource type="Script" uid="uid://chq0v4jry66ct" path="res://jugar.gd" id="1_2uji4"]
 [ext_resource type="Texture2D" uid="uid://jyajh0osrfjh" path="res://images/Backgrounds/baner.png" id="1_efeei"]
 [ext_resource type="PackedScene" uid="uid://dnx3113v8o7s1" path="res://Pisito.tscn" id="2_2lkxk"]
 [ext_resource type="PackedScene" uid="uid://d3pj4213bdv7n" path="res://Player.tscn" id="3_junlo"]
 [ext_resource type="Script" uid="uid://d3538s144mnm7" path="res://salud_1.gd" id="4_i05jc"]
+[ext_resource type="PackedScene" uid="uid://r10lwin1ohcw" path="res://flecha.tscn" id="4_oa0f5"]
 [ext_resource type="PackedScene" uid="uid://dxm2ckglrh1en" path="res://ajustes_img.tscn" id="5_2lkxk"]
 [ext_resource type="PackedScene" uid="uid://b4ge8qamycbg1" path="res://arquero.tscn" id="5_junlo"]
 [ext_resource type="Texture2D" uid="uid://346djo8fd4xa" path="res://images/Varios/Corazon.png" id="6_726qq"]
@@ -42,6 +43,9 @@ zoom = Vector2(2.32, 2.14)
 [node name="Node2D" parent="." instance=ExtResource("2_2lkxk")]
 position = Vector2(-181, 68)
 scale = Vector2(2, 1)
+
+[node name="Flecha" parent="." instance=ExtResource("4_oa0f5")]
+position = Vector2(-101, 23)
 
 [node name="Node2D7" parent="." instance=ExtResource("2_2lkxk")]
 position = Vector2(202, 36)
@@ -95,11 +99,10 @@ position = Vector2(240, -141)
 scale = Vector2(0.1, 0.1)
 
 [node name="Arquero" parent="." instance=ExtResource("5_junlo")]
-position = Vector2(194, -2)
+position = Vector2(218, -1)
 
-[node name="Salud_2" type="Node" parent="Arquero" node_paths=PackedStringArray("barra_salud")]
+[node name="Salud_2" type="Node" parent="Arquero"]
 script = ExtResource("6_wgicy")
-barra_salud = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="Arquero/Salud_2"]
 position = Vector2(-229, -141)

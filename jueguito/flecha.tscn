@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://r10lwin1ohcw"]
+
+[ext_resource type="Script" uid="uid://cp1hp2833n2hb" path="res://flecha.gd" id="1_kyqwc"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kyqwc"]
+a = Vector2(8, -8)
+b = Vector2(-7, 6)
+
+[node name="Flecha" type="Node2D"]
+script = ExtResource("1_kyqwc")
+
+[node name="flechaSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.097)
+
+[node name="hitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+shape = SubResource("SegmentShape2D_kyqwc")
+
+[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

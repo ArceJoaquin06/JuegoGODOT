@@ -4,6 +4,7 @@ var escalera = false
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
+var flecha = preload("res://flecha.tscn")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -50,3 +51,10 @@ func animations(direction):
 			$AnimatedSprite2D.play("Idle")
 		else:
 			$AnimatedSprite2D.play("Run")
+
+func _input(event):
+	if event.is_action_pressed("Atack_Arquero"): #La L
+		var newFlecha = flecha.instantiate()
+		newFlecha.position = self.position
+		newFlecha.isflip = $AnimatedSprite2D.flip_h 
+		add_sibling(newFlecha)
