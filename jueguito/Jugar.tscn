@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://drjkhhwe3evvw"]
+[gd_scene load_steps=8 format=3 uid="uid://drjkhhwe3evvw"]
 
 [ext_resource type="Texture2D" uid="uid://jyajh0osrfjh" path="res://images/Backgrounds/baner.png" id="1_efeei"]
 [ext_resource type="PackedScene" uid="uid://dnx3113v8o7s1" path="res://Pisito.tscn" id="2_2lkxk"]
 [ext_resource type="PackedScene" uid="uid://d3pj4213bdv7n" path="res://Player.tscn" id="3_junlo"]
 [ext_resource type="PackedScene" uid="uid://dxm2ckglrh1en" path="res://ajustes_img.tscn" id="5_2lkxk"]
 [ext_resource type="PackedScene" uid="uid://b4ge8qamycbg1" path="res://arquero.tscn" id="5_junlo"]
+[ext_resource type="Script" uid="uid://4eufsywmn7fd" path="res://escaleras.gd" id="6_junlo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyf8l"]
+size = Vector2(5.25, 62.5)
 
 [node name="Node2D" type="Node2D"]
 
@@ -71,3 +75,14 @@ scale = Vector2(0.1, 0.1)
 
 [node name="Arquero" parent="." instance=ExtResource("5_junlo")]
 position = Vector2(194, -2)
+
+[node name="Escaleras" type="Area2D" parent="."]
+position = Vector2(65, 85)
+script = ExtResource("6_junlo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escaleras"]
+position = Vector2(38.375, -41.25)
+shape = SubResource("RectangleShape2D_hyf8l")
+
+[connection signal="body_entered" from="Escaleras" to="Escaleras" method="_on_body_entered"]
+[connection signal="body_exited" from="Escaleras" to="Escaleras" method="_on_body_exited"]
