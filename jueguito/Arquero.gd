@@ -13,18 +13,18 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Arriba_Arquero") and is_on_floor():
+	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
 	if escalera:
-		if Input.is_action_pressed("Arriba_Arquero"):
+		if Input.is_action_pressed("ui_up"):
 			velocity.y = -50
-		elif Input.is_action_pressed("Abajo_Arquero"):
+		elif Input.is_action_pressed("ui_down"):
 			velocity.y = 50
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("Izq_Arquero", "Der_Arquero")
+	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
