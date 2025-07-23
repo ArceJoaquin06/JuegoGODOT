@@ -1,16 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://drjkhhwe3evvw"]
+[gd_scene load_steps=13 format=3 uid="uid://drjkhhwe3evvw"]
 
+[ext_resource type="Script" uid="uid://chq0v4jry66ct" path="res://jugar.gd" id="1_2uji4"]
 [ext_resource type="Texture2D" uid="uid://jyajh0osrfjh" path="res://images/Backgrounds/baner.png" id="1_efeei"]
 [ext_resource type="PackedScene" uid="uid://dnx3113v8o7s1" path="res://Pisito.tscn" id="2_2lkxk"]
 [ext_resource type="PackedScene" uid="uid://d3pj4213bdv7n" path="res://Player.tscn" id="3_junlo"]
+[ext_resource type="Script" uid="uid://d3538s144mnm7" path="res://salud_1.gd" id="4_i05jc"]
 [ext_resource type="PackedScene" uid="uid://dxm2ckglrh1en" path="res://ajustes_img.tscn" id="5_2lkxk"]
 [ext_resource type="PackedScene" uid="uid://b4ge8qamycbg1" path="res://arquero.tscn" id="5_junlo"]
+[ext_resource type="Texture2D" uid="uid://346djo8fd4xa" path="res://images/Varios/Corazon.png" id="6_726qq"]
 [ext_resource type="Script" uid="uid://4eufsywmn7fd" path="res://escaleras.gd" id="6_junlo"]
+[ext_resource type="Script" uid="uid://c1mx60itgnjxc" path="res://salud_componente.gd" id="6_wgicy"]
+[ext_resource type="PackedScene" uid="uid://drj0qp86abxx4" path="res://Salud.tscn" id="7_2uji4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyf8l"]
 size = Vector2(5.25, 62.5)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_2uji4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
@@ -65,6 +71,21 @@ scale = Vector2(1, 2)
 position = Vector2(-234, -37)
 scale = Vector2(0.868097, 1.02251)
 
+[node name="Salud_1" type="Node" parent="Player" node_paths=PackedStringArray("barra_salud")]
+script = ExtResource("4_i05jc")
+barra_salud = NodePath("ProgressBar")
+
+[node name="ProgressBar" parent="Player/Salud_1" instance=ExtResource("7_2uji4")]
+offset_left = 44.0
+offset_top = -148.0
+offset_right = 230.0
+offset_bottom = -133.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player/Salud_1"]
+position = Vector2(47.4201, -141.326)
+scale = Vector2(0.0436044, 0.0523149)
+texture = ExtResource("6_726qq")
+
 [node name="Node2D19" parent="." instance=ExtResource("2_2lkxk")]
 position = Vector2(0, 134)
 scale = Vector2(4, 1)
@@ -75,6 +96,21 @@ scale = Vector2(0.1, 0.1)
 
 [node name="Arquero" parent="." instance=ExtResource("5_junlo")]
 position = Vector2(194, -2)
+
+[node name="Salud_2" type="Node" parent="Arquero" node_paths=PackedStringArray("barra_salud")]
+script = ExtResource("6_wgicy")
+barra_salud = NodePath("")
+
+[node name="Sprite2D" type="Sprite2D" parent="Arquero/Salud_2"]
+position = Vector2(-229, -141)
+scale = Vector2(0.0500919, 0.0543612)
+texture = ExtResource("6_726qq")
+
+[node name="ProgressBar" parent="Arquero/Salud_2" instance=ExtResource("7_2uji4")]
+offset_left = -231.0
+offset_top = -149.0
+offset_right = -45.0
+offset_bottom = -134.0
 
 [node name="Escaleras" type="Area2D" parent="."]
 position = Vector2(65, 85)

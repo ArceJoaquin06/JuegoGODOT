@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://drj0qp86abxx4"]
+
+[ext_resource type="Script" uid="uid://c2cpcd05vuefg" path="res://progress_bar.gd" id="1_joxo8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_joxo8"]
+bg_color = Color(1, 0.0470588, 0.0784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glqjw"]
+bg_color = Color(0.999379, 0.735788, 0.718051, 1)
+
+[node name="ProgressBar" type="ProgressBar"]
+offset_right = 186.0
+offset_bottom = 15.0
+theme_override_styles/background = SubResource("StyleBoxFlat_joxo8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_glqjw")
+max_value = 1.0
+step = 0.1
+show_percentage = false
+script = ExtResource("1_joxo8")
