@@ -1,4 +1,5 @@
 extends Node
+class_name Salud1
 
 @export var salud_actual := 100.0
 @export var salud_maxima := 100.0

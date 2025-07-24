@@ -10,7 +10,7 @@ var nodoSalud
 @onready var sprite2D=$Sprite2D
 
 func _ready():
-	nodoSalud = get_node("Player/Salud_1")
+	nodoSalud = get_node("/root/Node2D/Player/Salud_1") as Salud1
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
