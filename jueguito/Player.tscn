@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3pj4213bdv7n"]
+[gd_scene load_steps=12 format=3 uid="uid://d3pj4213bdv7n"]
 
 [ext_resource type="Script" uid="uid://df0jpgchquk1b" path="res://PlayerMovement.gd" id="1_kne1u"]
 [ext_resource type="Texture2D" uid="uid://dpt8dbtvwksm5" path="res://images/Knight/noBKG_KnightIdle_strip.png" id="2_e80uo"]
@@ -152,21 +152,32 @@ _data = {
 &"standing": SubResource("Animation_l6w72")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
+size = Vector2(17, 25)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_kne1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_tdg3f")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(1.01857, 1.0071)
 texture = ExtResource("2_e80uo")
 hframes = 15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_tdg3f")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
 libraries = {
 &"": SubResource("AnimationLibrary_l6w72")
 }
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(0.5, -0.5)
+
+[node name="DañoPlayer" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+shape = SubResource("RectangleShape2D_e80uo")
+
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]

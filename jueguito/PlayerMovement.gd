@@ -3,9 +3,14 @@ extends CharacterBody2D
 var escalera = false
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
+ 
+var nodoSalud
 
 @onready var animationPlayer=$AnimationPlayer
 @onready var sprite2D=$Sprite2D
+
+func _ready():
+	nodoSalud = get_node("Player/Salud_1")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -45,3 +50,9 @@ func animations(direction):
 			animationPlayer.play("standing")
 		else:
 			animationPlayer.play("Run")
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("flecha"):
+		print("Tengo una serpiente en mi bota")
+		nodoSalud.recibir_daño(25) #Acá hay un error
