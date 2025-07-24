@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://r10lwin1ohcw"]
+[gd_scene load_steps=4 format=3 uid="uid://r10lwin1ohcw"]
 
 [ext_resource type="Script" uid="uid://cp1hp2833n2hb" path="res://flecha.gd" id="1_kyqwc"]
+[ext_resource type="Texture2D" uid="uid://bnp3h64gd0cl8" path="res://images/Varios/arrow.png" id="2_kyqwc"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kyqwc"]
 a = Vector2(8, -8)
@@ -11,10 +12,16 @@ script = ExtResource("1_kyqwc")
 
 [node name="flechaSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.097)
+texture = ExtResource("2_kyqwc")
 
 [node name="hitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
 shape = SubResource("SegmentShape2D_kyqwc")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
