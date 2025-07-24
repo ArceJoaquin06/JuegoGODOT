@@ -1,13 +1,11 @@
 extends CharacterBody2D
+class_name Player
 
 var escalera = false
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
  
 var nodoSalud
-
-@onready var animationPlayer=$AnimationPlayer
-@onready var sprite2D=$Sprite2D
 
 func _ready():
 	nodoSalud = get_node("/root/Node2D/Player/Salud_1") as Salud1
@@ -40,19 +38,21 @@ func _physics_process(delta: float) -> void:
 	animations(direction)
 
 	if direction ==1:
-		sprite2D.flip_h =false
+		$AnimatedSprite2D.flip_h =false
 	elif direction == -1:
-		sprite2D.flip_h =true
+		$AnimatedSprite2D.flip_h =true
 		
 func animations(direction):
 	if is_on_floor():
 		if direction==0:
-			animationPlayer.play("standing")
+			$AnimatedSprite2D.play("Idle")
 		else:
-			animationPlayer.play("Run")
-
+			$AnimatedSprite2D.play("Run")
+			
+func death():
+	$AnimatedSprite2D.play("Death")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("flecha"):
 		print("Tengo una serpiente en mi bota")
-		nodoSalud.recibir_daño(25) #Acá hay un error
+		nodoSalud.recibir_daño(25)

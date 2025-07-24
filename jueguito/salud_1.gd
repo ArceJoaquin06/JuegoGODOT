@@ -11,7 +11,7 @@ func recibir_daño(cantidad : float):
 	actualizar_salud()
 	
 	if salud_actual <= 0:
-		print("El personaje no tiene salud")
+		$AnimatedSprite2D.Death() #Acá temgo que exportar la funcion Death
 
 func actualizar_salud():
 		if barra_salud:

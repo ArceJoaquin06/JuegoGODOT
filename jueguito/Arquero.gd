@@ -51,6 +51,7 @@ func animations(direction):
 			$AnimatedSprite2D.play("Idle")
 		else:
 			$AnimatedSprite2D.play("Run")
+	
 
 func _input(event):
 	if event.is_action_pressed("Atack_Arquero"): #La L
