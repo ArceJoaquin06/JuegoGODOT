@@ -9,5 +9,6 @@ func _on_button_pressed() -> void:
 
 func _on_brillo_slider_value_changed(value: float) -> void:
 	ConfigGlobal.cambiar_brillo(value)
+	
 
 #46:48

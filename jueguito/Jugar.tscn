@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://drjkhhwe3evvw"]
+[gd_scene load_steps=14 format=3 uid="uid://drjkhhwe3evvw"]
 
 [ext_resource type="Script" uid="uid://chq0v4jry66ct" path="res://jugar.gd" id="1_2uji4"]
 [ext_resource type="Texture2D" uid="uid://jyajh0osrfjh" path="res://images/Backgrounds/baner.png" id="1_efeei"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://4eufsywmn7fd" path="res://escaleras.gd" id="6_junlo"]
 [ext_resource type="Script" uid="uid://c1mx60itgnjxc" path="res://salud_2.gd" id="6_wgicy"]
 [ext_resource type="PackedScene" uid="uid://drj0qp86abxx4" path="res://Salud.tscn" id="7_2uji4"]
+[ext_resource type="AudioStream" uid="uid://b14iam72rionh" path="res://Music/medieval-background-351307.mp3" id="12_oa0f5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyf8l"]
 size = Vector2(5.25, 62.5)
@@ -119,6 +120,9 @@ script = ExtResource("6_junlo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Escaleras"]
 position = Vector2(38.375, -41.25)
 shape = SubResource("RectangleShape2D_hyf8l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_oa0f5")
 
 [connection signal="body_entered" from="Escaleras" to="Escaleras" method="_on_body_entered"]
 [connection signal="body_exited" from="Escaleras" to="Escaleras" method="_on_body_exited"]

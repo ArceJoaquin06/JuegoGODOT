@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8q34s2fxgimc"]
+[gd_scene load_steps=2 format=3 uid="uid://dm02mmxxvttvf"]
 
-[ext_resource type="Script" uid="uid://dmpfpuaw0itga" path="res://opciones.gd" id="1_0bc36"]
+[sub_resource type="GDScript" id="GDScript_638lt"]
+script/source = "extends Control
+
+
+
+func _on_menu_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://menu.tscn\")
+"
 
 [node name="Opciones" type="Control"]
 layout_mode = 3
@@ -9,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0bc36")
+script = SubResource("GDScript_638lt")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 0
