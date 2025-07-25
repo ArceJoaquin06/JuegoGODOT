@@ -4,6 +4,7 @@ class_name Salud1
 @export var salud_actual := 100.0
 @export var salud_maxima := 100.0
 @export var barra_salud : BarraSalud
+@export var personaje: CharacterBody2D
 
 func recibir_daño(cantidad : float):
 	salud_actual -= cantidad
@@ -11,7 +12,11 @@ func recibir_daño(cantidad : float):
 	actualizar_salud()
 	
 	if salud_actual <= 0:
-		$AnimatedSprite2D.Death() #Acá temgo que exportar la funcion Death
+		print('personaje muerto')
+		personaje.morir()
+		#if personaje.has_method("morir"):
+		#	print('me mori')
+		#	personaje.call("morir")
 
 func actualizar_salud():
 		if barra_salud:

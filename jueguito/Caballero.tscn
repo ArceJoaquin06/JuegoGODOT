@@ -1,224 +1,163 @@
-[gd_scene load_steps=47 format=3 uid="uid://d3pj4213bdv7n"]
+[gd_scene load_steps=46 format=3 uid="uid://gp81ndxirp88"]
 
-[ext_resource type="Script" uid="uid://df0jpgchquk1b" path="res://PlayerMovement.gd" id="1_kne1u"]
-[ext_resource type="Texture2D" uid="uid://dbemuj7toa06i" path="res://images/Knight/noBKG_KnightDeath_strip.png" id="2_cxr5p"]
-[ext_resource type="Texture2D" uid="uid://dpt8dbtvwksm5" path="res://images/Knight/noBKG_KnightIdle_strip.png" id="2_e80uo"]
-[ext_resource type="Texture2D" uid="uid://botr5sv5yd8tc" path="res://images/Knight/noBKG_KnightRun_strip.png" id="3_cxr5p"]
-
-[sub_resource type="GDScript" id="GDScript_e80uo"]
-script/source = "extends CharacterBody2D
-class_name Jugador
-
-var escalera = false
-const SPEED = 200.0
-const JUMP_VELOCITY = -400.0
- 
-var nodoSalud
-
-func _ready():
-	nodoSalud = get_node(\"/root/Node2D/Player/Salud_1\") as Salud1
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed(\"Arriba_Player\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		
-	if escalera:
-		if Input.is_action_pressed(\"Arriba_Player\"):
-			velocity.y = -50
-		elif Input.is_action_pressed(\"Abajo_Player\"):
-			velocity.y = 50
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis(\"Izq_Player\", \"Der_Player\")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
-	
-	animations(direction)
-
-	if direction ==1:
-		$AnimatedSprite2D.flip_h =false
-	elif direction == -1:
-		$AnimatedSprite2D.flip_h =true
-		
-func animations(direction):
-	if is_on_floor():
-		if direction==0:
-			$AnimatedSprite2D.play(\"Idle\")
-		else:
-			$AnimatedSprite2D.play(\"Run\")
-			
-func morir():
-	$AnimatedSprite2D.play(\"Death\")
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group(\"flecha\"):
-		print(\"Tengo una serpiente en mi bota\")
-		nodoSalud.recibir_daño(25)
-"
+[ext_resource type="Script" uid="uid://df0jpgchquk1b" path="res://PlayerMovement.gd" id="1_r8x5b"]
+[ext_resource type="Texture2D" uid="uid://dbemuj7toa06i" path="res://images/Knight/noBKG_KnightDeath_strip.png" id="2_nvr46"]
+[ext_resource type="Texture2D" uid="uid://dpt8dbtvwksm5" path="res://images/Knight/noBKG_KnightIdle_strip.png" id="3_yu674"]
+[ext_resource type="Texture2D" uid="uid://botr5sv5yd8tc" path="res://images/Knight/noBKG_KnightRun_strip.png" id="4_eprcf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vjad"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(0, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yt0h1"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(96, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vd78s"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(192, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ictha"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(288, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jgrc"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(384, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wy67"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(480, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q26ax"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(576, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p01ps"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(672, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7dl7"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(768, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48og4"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(864, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmpta"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(960, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrbh7"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(1056, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lrhq4"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(1152, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ibubc"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(1248, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gueye"]
-atlas = ExtResource("2_cxr5p")
+atlas = ExtResource("2_nvr46")
 region = Rect2(1344, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kne1u"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e80uo"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxr5p"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdg3f"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dtqjt"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ncpa"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi0c6"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp6x6"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tkgg"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6ohk"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(576, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oudfo"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(640, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6rpx"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(704, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3kul"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(768, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jatw7"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(832, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rv870"]
-atlas = ExtResource("2_e80uo")
+atlas = ExtResource("3_yu674")
 region = Rect2(896, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_efikj"]
-atlas = ExtResource("3_cxr5p")
+atlas = ExtResource("4_eprcf")
 region = Rect2(0, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_itxgx"]
-atlas = ExtResource("3_cxr5p")
+atlas = ExtResource("4_eprcf")
 region = Rect2(96, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cgsek"]
-atlas = ExtResource("3_cxr5p")
+atlas = ExtResource("4_eprcf")
 region = Rect2(192, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0pi4m"]
-atlas = ExtResource("3_cxr5p")
+atlas = ExtResource("4_eprcf")
 region = Rect2(288, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sg6sq"]
-atlas = ExtResource("3_cxr5p")
+atlas = ExtResource("4_eprcf")
 region = Rect2(384, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h84ma"]
-atlas = ExtResource("3_cxr5p")
+atlas = ExtResource("4_eprcf")
 region = Rect2(480, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47wu6"]
-atlas = ExtResource("3_cxr5p")
+atlas = ExtResource("4_eprcf")
 region = Rect2(576, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2n1s8"]
-atlas = ExtResource("3_cxr5p")
+atlas = ExtResource("4_eprcf")
 region = Rect2(672, 0, 96, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3vjad"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_85vhc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -350,30 +289,29 @@ animations = [{
 "speed": 13.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdg3f"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5fmy"]
 size = Vector2(17, 25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm6a7"]
 size = Vector2(17, 25)
 
-[node name="Player" type="Node2D"]
-script = SubResource("GDScript_e80uo")
+[node name="Caballero" type="CharacterBody2D"]
+script = ExtResource("1_r8x5b")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_kne1u")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-sprite_frames = SubResource("SpriteFrames_3vjad")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_85vhc")
 animation = &"Death"
+frame_progress = 0.0913622
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_tdg3f")
+shape = SubResource("RectangleShape2D_a5fmy")
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+[node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0.5, -0.5)
 
-[node name="DañoPlayer" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-shape = SubResource("RectangleShape2D_e80uo")
+[node name="DañoPlayer" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lm6a7")
 
-[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
