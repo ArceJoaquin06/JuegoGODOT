@@ -19,6 +19,10 @@ config/icon="res://images/icon.svg"
 
 ConfigGlobal="*res://Config_Global.gd"
 
+[global_group]
+
+Sword=""
+
 [input]
 
 Arriba_Player={

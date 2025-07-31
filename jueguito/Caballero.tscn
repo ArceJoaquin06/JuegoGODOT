@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://gp81ndxirp88"]
+[gd_scene load_steps=58 format=3 uid="uid://gp81ndxirp88"]
 
 [ext_resource type="Script" uid="uid://df0jpgchquk1b" path="res://PlayerMovement.gd" id="1_r8x5b"]
 [ext_resource type="Texture2D" uid="uid://dbemuj7toa06i" path="res://images/Knight/noBKG_KnightDeath_strip.png" id="2_nvr46"]
@@ -371,12 +371,17 @@ size = Vector2(17, 25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm6a7"]
 size = Vector2(17, 25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvr46"]
+size = Vector2(32, 21)
+
 [node name="Caballero" type="CharacterBody2D"]
 script = ExtResource("1_r8x5b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_85vhc")
-animation = &"Run"
+animation = &"Atack"
+frame = 9
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
@@ -387,6 +392,12 @@ position = Vector2(0.5, -0.5)
 
 [node name="DañoPlayer" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_lm6a7")
+
+[node name="Espada" type="Area2D" parent="." groups=["Sword"]]
+
+[node name="EspadaCol" type="CollisionShape2D" parent="Espada"]
+position = Vector2(7, -9.5)
+shape = SubResource("RectangleShape2D_nvr46")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

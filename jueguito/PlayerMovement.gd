@@ -41,6 +41,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Atack_Player") and not ataque:
 		ataque = true
 		$AnimatedSprite2D.play("Atack")
+		
+	
 
 	# Si está atacando, no se mueve ni se anima
 	if not ataque:
