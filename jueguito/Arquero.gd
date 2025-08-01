@@ -89,3 +89,4 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if esta_muerto == true:
 		print("Acabó")
 		queue_free()
+		get_tree().change_scene_to_file("res://game_over.tscn")

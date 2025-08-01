@@ -84,6 +84,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	elif $AnimatedSprite2D.animation == "Death":
 		print("Animación terminada")
 		queue_free()
+		get_tree().change_scene_to_file("res://game_over.tscn")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("flecha"):
