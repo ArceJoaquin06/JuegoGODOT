@@ -13,6 +13,7 @@ func recibir_daño(cantidad : float):
 	
 	if salud_actual <= 0:
 		print("El personaje no tiene salud")
+		personaje.morir()
 
 func actualizar_salud():
 		if barra_salud:

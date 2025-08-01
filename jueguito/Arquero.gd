@@ -68,7 +68,11 @@ func animations(direction):
 		else:
 			$AnimatedSprite2D.play("Run")
 	
-
+func morir():
+	esta_muerto = true
+	print("¡Me morí!")
+	$AnimatedSprite2D.play("Death")
+	
 func _input(event):
 	if event.is_action_pressed("Atack_Arquero"): #La L
 		var newFlecha = flecha.instantiate()
@@ -79,3 +83,9 @@ func _input(event):
 func dañarme():
 	print('me he dañao tío')
 	nodoSalud2.recibir_daño(25)
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if esta_muerto == true:
+		print("Acabó")
+		queue_free()

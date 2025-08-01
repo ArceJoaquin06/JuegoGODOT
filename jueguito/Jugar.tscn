@@ -98,9 +98,10 @@ scale = Vector2(0.1, 0.1)
 [node name="Arquero" parent="." instance=ExtResource("5_junlo")]
 position = Vector2(218, -1)
 
-[node name="Salud_2" type="Node" parent="Arquero" node_paths=PackedStringArray("barra_salud")]
+[node name="Salud_2" type="Node" parent="Arquero" node_paths=PackedStringArray("barra_salud", "personaje")]
 script = ExtResource("6_wgicy")
 barra_salud = NodePath("ProgressBar")
+personaje = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="Arquero/Salud_2"]
 position = Vector2(-229, -141)
