@@ -14,9 +14,6 @@ func recibir_daño(cantidad : float):
 	if salud_actual <= 0:
 		print('personaje muerto')
 		personaje.morir()
-		#if personaje.has_method("morir"):
-		#	print('me mori')
-		#	personaje.call("morir")
 
 func actualizar_salud():
 		if barra_salud:

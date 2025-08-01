@@ -1,12 +1,25 @@
 extends CharacterBody2D
+class_name Arquero
+
+@onready var caballero: Jugador = $"../Caballero"
 
 var escalera = false
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
+var nodoSalud2
+var esta_muerto = false
 
 var flecha = preload("res://flecha.tscn")
 
+func _ready():
+	nodoSalud2 = get_node("/root/Node2D/Arquero/Salud_2")
+	
+	caballero.connect('pegar', dañarme)
+
 func _physics_process(delta: float) -> void:
+	if esta_muerto:
+		return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -46,6 +59,9 @@ func _physics_process(delta: float) -> void:
 		
 		
 func animations(direction):
+	if esta_muerto:
+		return
+		
 	if is_on_floor():
 		if direction==0:
 			$AnimatedSprite2D.play("Idle")
@@ -59,3 +75,7 @@ func _input(event):
 		newFlecha.position = self.position
 		newFlecha.isflip = $AnimatedSprite2D.flip_h 
 		add_sibling(newFlecha)
+		
+func dañarme():
+	print('me he dañao tío')
+	nodoSalud2.recibir_daño(25)

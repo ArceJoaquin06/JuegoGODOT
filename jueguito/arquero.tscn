@@ -343,7 +343,7 @@ size = Vector2(18, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns5s5"]
 size = Vector2(18, 26)
 
-[node name="Arquero" type="CharacterBody2D"]
+[node name="Arquero" type="CharacterBody2D" groups=["Sword"]]
 script = ExtResource("1_phyf2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

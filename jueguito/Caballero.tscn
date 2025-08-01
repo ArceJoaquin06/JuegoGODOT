@@ -395,9 +395,10 @@ shape = SubResource("RectangleShape2D_lm6a7")
 
 [node name="Espada" type="Area2D" parent="." groups=["Sword"]]
 
-[node name="EspadaCol" type="CollisionShape2D" parent="Espada"]
+[node name="EspadaCol" type="CollisionShape2D" parent="Espada" groups=["Sword"]]
 position = Vector2(7, -9.5)
 shape = SubResource("RectangleShape2D_nvr46")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Espada" to="." method="_on_espada_body_entered"]
