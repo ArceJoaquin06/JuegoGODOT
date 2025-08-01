@@ -10,8 +10,12 @@ var nodoSalud
 var esta_muerto = false
 var ataque:bool = false  
 
+var cuerpos_en_espada: Array = []
+
 func _ready():
 	nodoSalud = get_node("/root/Node2D/Caballero/Salud_1") as Salud1
+	$Espada.connect("body_entered", Callable(self, "_on_espada_body_entered"))
+	$Espada.connect("body_exited", Callable(self, "_on_espada_body_exited"))
 
 func _physics_process(delta: float) -> void:
 	if esta_muerto:
@@ -44,7 +48,10 @@ func _physics_process(delta: float) -> void:
 		ataque = true
 		$AnimatedSprite2D.play("Atack")
 		
-	
+		for cuerpo in cuerpos_en_espada:
+			if cuerpo.is_in_group("Sword"):  # o "Enemigos"
+				print("estoy pegando")
+				pegar.emit()
 
 	# Si está atacando, no se mueve ni se anima
 	if not ataque:
@@ -93,7 +100,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 
 func _on_espada_body_entered(body: Node2D) -> void:
-	if(body.is_in_group("Sword")):
-		print('estoy pegando')
-		pegar.emit()
-		
+	if body.is_in_group("Sword"):  # o "Enemigos", como agrupes a los enemigos
+		cuerpos_en_espada.append(body)
+
+func _on_espada_body_exited(body: Node2D) -> void:
+	cuerpos_en_espada.erase(body)
