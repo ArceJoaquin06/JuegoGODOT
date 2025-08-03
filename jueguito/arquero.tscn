@@ -448,7 +448,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rt048")
 }],
-"loop": true,
+"loop": false,
 "name": &"Dodge",
 "speed": 13.0
 }, {
@@ -524,7 +524,8 @@ script = ExtResource("1_phyf2")
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_260ta")
 animation = &"Dodge"
-frame_progress = 0.978116
+frame = 13
+frame_progress = 1.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -1)
