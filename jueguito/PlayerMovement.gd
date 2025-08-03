@@ -8,6 +8,7 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 var nodoSalud
 var esta_muerto = false
+var defensa = false
 var ataque:bool = false  
 
 var cuerpos_en_espada: Array = []
@@ -19,6 +20,18 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	if esta_muerto:
+		return
+
+	# ESCUDO
+	if Input.is_action_pressed("Shield_Player") and is_on_floor():
+		defensa = true
+		if $AnimatedSprite2D.animation != "Shield":
+			$AnimatedSprite2D.play("Shield")
+	else:
+		defensa = false
+	
+	if defensa:
+		# No se puede mover ni atacar mientras se cubre
 		return
 
 	# Gravedad
@@ -44,12 +57,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	# ATAQUE
-	if Input.is_action_just_pressed("Atack_Player") and not ataque:
+	if Input.is_action_just_pressed("Atack_Player") and not ataque and is_on_floor():
 		ataque = true
 		$AnimatedSprite2D.play("Atack")
-		
+
 		for cuerpo in cuerpos_en_espada:
-			if cuerpo.is_in_group("Sword"):  # o "Enemigos"
+			if cuerpo.is_in_group("Sword"):
 				print("estoy pegando")
 				pegar.emit()
 
@@ -63,12 +76,6 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = false
 	elif direction == -1:
 		$AnimatedSprite2D.flip_h = true
-
-
-	if direction ==1:
-		$AnimatedSprite2D.flip_h =false
-	elif direction == -1:
-		$AnimatedSprite2D.flip_h =true
 		
 func animations(direction):
 	if esta_muerto:
