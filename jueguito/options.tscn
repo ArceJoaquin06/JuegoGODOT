@@ -29,25 +29,30 @@ layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Pantalla"]
+process_mode = 2
 layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 619.0
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Pantalla/MarginContainer"]
+process_mode = 2
 layout_mode = 2
 columns = 2
 
 [node name="Label" type="Label" parent="TabContainer/Pantalla/MarginContainer/GridContainer"]
+process_mode = 2
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Brillo"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Pantalla/MarginContainer/GridContainer"]
+process_mode = 2
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 2
 
 [node name="Brillo_Slider" type="HSlider" parent="TabContainer/Pantalla/MarginContainer/GridContainer/HBoxContainer"]
+process_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4

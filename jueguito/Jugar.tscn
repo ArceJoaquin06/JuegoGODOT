@@ -104,7 +104,7 @@ barra_salud = NodePath("ProgressBar")
 personaje = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="Arquero/Salud_2"]
-position = Vector2(-229, -141)
+position = Vector2(-230, -141)
 scale = Vector2(0.0500919, 0.0543612)
 texture = ExtResource("6_726qq")
 

@@ -364,6 +364,11 @@ animations = [{
 "name": &"Idle",
 "speed": 13.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"Jump&Fall",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_efikj")
@@ -434,9 +439,7 @@ script = ExtResource("1_r8x5b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_85vhc")
-animation = &"Shield"
-frame = 6
-frame_progress = 1.0
+animation = &"Atack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)

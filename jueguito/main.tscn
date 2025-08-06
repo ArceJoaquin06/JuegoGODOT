@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfft4n76uqwrq"]
+
+[ext_resource type="Script" uid="uid://bmfk5xy4iwnp0" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://lgixnw8dfkei" path="res://menu.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://drjkhhwe3evvw" path="res://Jugar.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bu20ejwlcrfs5" path="res://options.tscn" id="3_lquwl"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1bvp3")
+
+[node name="Menu" parent="." instance=ExtResource("1_h2yge")]
+size_flags_horizontal = 4
+script = null
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -348.0
+offset_top = -68.0
+offset_right = 1010.0
+offset_bottom = 527.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 400
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="Menu/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Opciones" type="Button" parent="Menu/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Opciones"
+
+[node name="Exit" type="Button" parent="Menu/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="Jugar" parent="." instance=ExtResource("2_1bvp3")]
+
+[node name="Options" parent="." instance=ExtResource("3_lquwl")]
